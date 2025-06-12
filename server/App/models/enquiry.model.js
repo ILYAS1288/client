@@ -10,6 +10,7 @@ let enquirySchema = new Schema({
         require: true,
         unique:true
     },
+    
     phone: {
         type: String,
         require: true

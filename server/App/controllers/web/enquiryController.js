@@ -8,6 +8,7 @@ let enquiryInsert = (req, res) => {
         phone,
         message
     });
+    
     enquiry.save().then(() => {
         res.send("Date Saved");
     }).catch((err) => {
