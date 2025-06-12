@@ -18,6 +18,7 @@ export default function Enquiry() {
 
 
         e.preventDefault()
+        
         // let formDate={
         //     name:e.target.name.value,
         //     email:e.target.email.value,
@@ -44,6 +45,7 @@ export default function Enquiry() {
         oldDate[inputName] = inputValue;
         setformDate(oldDate)
     }
+
 
     return (
         <div>
