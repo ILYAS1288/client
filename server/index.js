@@ -12,9 +12,6 @@ app.use('/api/website/enquiry', enquiryRouter);
 
 
 
-
-
-
 //Connect to MongoDB
 mongoose.connect(process.env.DBURL).then(() => {
     console.log('Connected to MongoDB');

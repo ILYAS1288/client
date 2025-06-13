@@ -6,7 +6,7 @@ enquiryRouter.post('/insert',enquiryInsert)
 
 
 
-enquiryRouter.post('/view',enquiryList)
+enquiryRouter.get('/view',enquiryList)
 
 
 

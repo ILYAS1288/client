@@ -2,12 +2,12 @@
 
 
 import { Button, Label, TextInput, Textarea } from "flowbite-react";
-import {ToastContainer , toast } from "react-toastify"
+import { ToastContainer, toast } from "react-toastify"
 import { EnquiryList } from "./enquiry/EnquiryList";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function Enquiry() {
-    let [enquiryList, setEnquiryList]=useState([])
+    let [enquiryList, setEnquiryList] = useState([])
     let [formDate, setformDate] = useState({
         name: "",
         email: "",
@@ -18,7 +18,7 @@ export default function Enquiry() {
 
 
         e.preventDefault()
-        
+
         // let formDate={
         //     name:e.target.name.value,
         //     email:e.target.email.value,
@@ -38,6 +38,24 @@ export default function Enquiry() {
             })
         })
     }
+    
+    let getAllequiry = () => {
+        axios.get('http://localhost:8020/api/website/enquiry/view')
+            .then((res) => {
+                return res.data
+            })
+            .then((finalDate) => {
+                if (finalDate.status) {
+                    setEnquiryList(finalDate.enquiryList)
+                }
+            })
+    }
+
+
+
+
+
+
     let getValue = (e) => {
         let inputName = e.target.name
         let inputValue = e.target.value
@@ -47,9 +65,13 @@ export default function Enquiry() {
     }
 
 
+    useEffect(() => {
+        getAllequiry()
+    }, [])
+
     return (
         <div>
-            <ToastContainer/>
+            <ToastContainer />
             <h1 className="text-[40px] text-center py-6 font-blod">User Enquiry </h1>
             <div className="grid grid-cols-[30%_auto] gap-10">
                 <div className="bg-gray-200 p-4">
@@ -80,7 +102,7 @@ export default function Enquiry() {
 
                     </form>
                 </div>
-                <EnquiryList />
+                <EnquiryList data={enquiryList} />
             </div>
         </div>
     )
