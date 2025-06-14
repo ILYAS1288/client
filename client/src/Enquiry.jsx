@@ -102,7 +102,7 @@ export default function Enquiry() {
 
                     </form>
                 </div>
-                <EnquiryList data={enquiryList} />
+                <EnquiryList data={enquiryList} getAllequiry={getAllequiry} />
             </div>
         </div>
     )
