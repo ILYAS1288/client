@@ -20,10 +20,10 @@ const deleteRow = async (delid) => {
         <ToastContainer/>
             <h2 className="text-[20px] font-blod">Enquiry From </h2>
             <div className="overflow-x-auto">
-                <Table>
+                <Table>                    
                     <TableHead>
                         <TableRow>
-                            <TableHeadCell>Sr No </TableHeadCell>
+                            <TableHeadCell>Sr.No </TableHeadCell>
                             <TableHeadCell>Name</TableHeadCell>
                             <TableHeadCell>Email</TableHeadCell>
                             <TableHeadCell>Phone</TableHeadCell>
