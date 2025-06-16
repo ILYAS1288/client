@@ -5,6 +5,7 @@ import { Button, Label, TextInput, Textarea } from "flowbite-react";
 import { ToastContainer, toast } from "react-toastify"
 import { EnquiryList } from "./enquiry/EnquiryList";
 import axios from "axios";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 import { useEffect, useState } from "react";
 export default function Enquiry() {
     let [enquiryList, setEnquiryList] = useState([])
@@ -102,7 +103,7 @@ export default function Enquiry() {
 
                     </form>
                 </div>
-                <EnquiryList data={enquiryList} getAllequiry={getAllequiry} />
+                <EnquiryList data={enquiryList} getAllequiry={getAllequiry} Swal={Swal}/>
             </div>
         </div>
     )
