@@ -3,9 +3,9 @@ import axios from "axios";
 
 import { toast,  } from 'react-toastify'
 export function EnquiryList({ data, getAllequiry, Swal }) {
-    // EnquiryList.jsx
+  
 const deleteRow = async (delid) => {
-  // 1️⃣ Ask for confirmation
+ 
   const result = await Swal.fire({
     title: "Delete this enquiry?",
     text: "This action cannot be undone.",
@@ -15,24 +15,28 @@ const deleteRow = async (delid) => {
     cancelButtonText: "Cancel",
   });
 
-  // 2️⃣ If confirmed, hit the API
+  
   if (result.isConfirmed) {
     try {
       await axios.delete(
         `http://localhost:8020/api/website/enquiry/delete/${delid}`
       );
       toast.success("Enquiry deleted successfully");
-      getAllequiry(); // <- make sure the spelling matches
+      getAllequiry(); 
     } catch (err) {
       toast.error(
         err.response?.data?.message || "Server error – could not delete"
       );
     }
   } else {
-    // Optional: user cancelled
+    
     Swal.fire("Deletion cancelled", "", "info");
   }
 };
+
+let eidtRow=(editid)=>{
+alert(editid)
+}
 
     return (
         <div className="bg-gray-200 p-4">
@@ -73,7 +77,7 @@ const deleteRow = async (delid) => {
                                                 </button>
                                             </TableCell>
                                             <TableCell>
-                                                <button className="bg-blue-500 text-white px-4 py-2 rounded-md">
+                                                <button onClick={()=>eidtRow(item._id)} className="bg-blue-500 text-white px-4 py-2 rounded-md">
                                                     Eidt
                                                 </button>
                                             </TableCell>
