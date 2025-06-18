@@ -29,5 +29,10 @@ let enquiryInsert = (req, res) => {
 
         
     }
+    let enquirysingleRow=async(req,res)=>{
+        let enId=req.params.id;
+        let enquiry=await enquiryModel.findOne({_id:enId});
+        res.send({status:1,enquiry})
+    }
 
-module.exports = { enquiryInsert, enquiryList,enquiryDelete };
+module.exports = { enquiryInsert, enquiryList,enquiryDelete ,enquirysingleRow};

@@ -13,7 +13,8 @@ export default function Enquiry() {
         name: "",
         email: "",
         phone: "",
-        message: ""
+        message: "",
+        _id:""
     })
     let saveEnquriy = (e) => {
 
@@ -27,6 +28,7 @@ export default function Enquiry() {
         //     message:e.target.message.value
 
         // }
+        
 
         axios.post('http://localhost:8020/api/website/enquiry/insert', formDate).then((res) => {
             // console.log(res.data)
@@ -96,7 +98,9 @@ export default function Enquiry() {
                             <Textarea value={formDate.message} onChange={getValue} name="message" placeholder="Enter Your Message" required rows={4} />
                         </div>
                         <div className="mb-2 block">
-                            <Button type="submit" className="w-[100%]">Save</Button>
+                            <Button type="submit" className="w-[100%]">
+                                {formDate._id ?"Update":"Save"} 
+                            </Button>
 
                         </div>
 
@@ -104,7 +108,7 @@ export default function Enquiry() {
 
                     </form>
                 </div>
-                <EnquiryList data={enquiryList} getAllequiry={getAllequiry} Swal={Swal}/>
+                <EnquiryList data={enquiryList} getAllequiry={getAllequiry} Swal={Swal} setformDate={setformDate}/>
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow, } from
 import axios from "axios";
 
 import { toast,  } from 'react-toastify'
-export function EnquiryList({ data, getAllequiry, Swal }) {
+export function EnquiryList({ data, getAllequiry, Swal,setformDate }) {
   
 const deleteRow = async (delid) => {
  
@@ -34,9 +34,20 @@ const deleteRow = async (delid) => {
   }
 };
 
-let eidtRow=(editid)=>{
-alert(editid)
-}
+
+const editRow = async (editId) => {
+  try {
+    const res = await axios.get(
+      `http://localhost:8020/api/website/enquiry/single/${editId}`  
+    );
+   setformDate(res.data.enquiry);
+  
+  } catch (err) {
+    console.error(err.response?.data || err.message);
+   
+  }
+};
+
 
     return (
         <div className="bg-gray-200 p-4">
@@ -77,7 +88,7 @@ alert(editid)
                                                 </button>
                                             </TableCell>
                                             <TableCell>
-                                                <button onClick={()=>eidtRow(item._id)} className="bg-blue-500 text-white px-4 py-2 rounded-md">
+                                                <button onClick={()=>editRow(item._id)} className="bg-blue-500 text-white px-4 py-2 rounded-md">
                                                     Eidt
                                                 </button>
                                             </TableCell>
