@@ -6,6 +6,9 @@ enquiryRouter.post('/insert',enquiryInsert)
 
 
 
+
+
+
 enquiryRouter.get('/view',enquiryList)
 enquiryRouter.delete("/delete/:id",enquiryDelete)
 enquiryRouter.get("/single/:id",enquirysingleRow)

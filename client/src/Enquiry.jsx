@@ -29,7 +29,6 @@ export default function Enquiry() {
 
         // }
         
-
         axios.post('http://localhost:8020/api/website/enquiry/insert', formDate).then((res) => {
             // console.log(res.data)
             toast.success('Enquiry Saved Successfully')
