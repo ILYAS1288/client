@@ -28,7 +28,7 @@ export default function Enquiry() {
         //     message:e.target.message.value
 
         // }
-        
+    
         axios.post('http://localhost:8020/api/website/enquiry/insert', formDate).then((res) => {
             // console.log(res.data)
             toast.success('Enquiry Saved Successfully')
